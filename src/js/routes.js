@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * Route configuration for the RDash module.
+ * Route configuration for the SgfProjects module.
  */
 angular.module('SgfProjects').config(['$stateProvider', '$urlRouterProvider',
     function($stateProvider, $urlRouterProvider) {
