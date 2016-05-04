@@ -1,1 +1,1 @@
-angular.module('RDash', ['ui.bootstrap', 'ui.router', 'ngCookies']);
+angular.module('SgfProjects', ['ui.bootstrap', 'ui.router', 'ngCookies']);

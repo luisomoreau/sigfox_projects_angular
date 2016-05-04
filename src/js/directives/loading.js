@@ -4,7 +4,7 @@
  */
 
 angular
-    .module('RDash')
+    .module('SgfProjects')
     .directive('rdLoading', rdLoading);
 
 function rdLoading() {

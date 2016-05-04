@@ -3,7 +3,7 @@
 /**
  * Route configuration for the RDash module.
  */
-angular.module('RDash').config(['$stateProvider', '$urlRouterProvider',
+angular.module('SgfProjects').config(['$stateProvider', '$urlRouterProvider',
     function($stateProvider, $urlRouterProvider) {
 
         // For unmatched routes

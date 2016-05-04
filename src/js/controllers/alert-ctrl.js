@@ -3,7 +3,7 @@
  */
 
 angular
-    .module('RDash')
+    .module('SgfProjects')
     .controller('AlertsCtrl', ['$scope', AlertsCtrl]);
 
 function AlertsCtrl($scope) {

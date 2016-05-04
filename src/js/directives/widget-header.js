@@ -3,7 +3,7 @@
  */
 
 angular
-    .module('RDash')
+    .module('SgfProjects')
     .directive('rdWidgetHeader', rdWidgetTitle);
 
 function rdWidgetTitle() {

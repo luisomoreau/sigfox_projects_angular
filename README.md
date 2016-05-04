@@ -12,7 +12,7 @@ Check out the [live example](http://rdash.github.io/)!
 * [Gulp](http://gulpjs.com)
 
 ### Installation
-1. Clone the repository: `git clone https://github.com/rdash/rdash-angular.git`
+1. Clone the repository: `git clone https://github.com/luisomoreau/sigfox_projects_angular.git`
 2. Install the NodeJS dependencies: `npm install`.
 3. Install the Bower dependencies: `bower install`.
 4. Run the gulp build task: `gulp build`.
@@ -33,3 +33,4 @@ If you'd like to include any additional modules/packages not included with rdash
 * [Leonel Samayoa](https://github.com/lsamayoa)
 * [Mathew Goldsborough](https://github.com/mgoldsborough)
 * [Ricardo Pascua Jr](https://github.com/rdpascua)
+* [Louis Moreau](https://github.com/luisomoreau)
