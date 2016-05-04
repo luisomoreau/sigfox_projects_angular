@@ -1,0 +1,37 @@
+<div class="row" data-ng-controller="DevicesCtrl">
+
+    <div class="row">
+        <div class="col-lg-3 col-md-6 col-xs-12" data-ng-repeat="device in devices" ng-click="getAllMessages()">
+            <rd-widget>
+                <rd-widget-body>
+                    <div class="widget-icon green pull-left">
+                        <i class="fa fa-leaf"></i>
+                    </div>
+                    <div class="title">{{device.name}}</div>
+                    <div class="comment">{{device.id}}</div>
+                    <p></p>
+                    <div class="comment">{{device.category}}</div>
+                    <!--<div class="comment">{{device.lastMessage | date:'MM/dd/yyyy @ h:mma'}}</div>-->
+                    <div class="comment">{{device.board}}</div>
+                </rd-widget-body>
+            </rd-widget>
+        </div>
+    </div>
+
+    <div class="row" ng-show="showMessage">
+        <div class="col-lg-4 col-md-12 col-xs-12">
+            <div class="panel" data-ng-repeat="message in messages | orderBy:'-id'">
+                <div class="panel panel-heading text-center">{{message.time | date:'MM/dd/yyyy @ h:mma'}}</div>
+                <div class="panel-body">
+                    <p>Temperature: {{message.temp}}°C</p>
+                    <p>Lightning: {{message.lum}}%</p>
+                    <p>Ground moisture: {{message.hum}}%</p>
+                    <p>id: {{message.id}}</p>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
