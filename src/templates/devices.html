@@ -9,21 +9,23 @@
                     </div>
                     <div class="title">{{device.name}}</div>
                     <div class="comment">{{device.id}}</div>
+                    <p></p>
                     <div class="comment">{{device.category}}</div>
-                    <div class="comment text-center">{{device.lastMessage | date:'MM/dd/yyyy @ h:mma'}}</div>
+                    <!--<div class="comment">{{device.lastMessage | date:'MM/dd/yyyy @ h:mma'}}</div>-->
+                    <div class="comment">{{device.board}}</div>
                 </rd-widget-body>
             </rd-widget>
         </div>
     </div>
 
     <div class="row" ng-show="showMessage">
-        <div class="col-lg-6 col-md-12 col-xs-12">
-            <div class="panel" data-ng-repeat="message in messages">
+        <div class="col-lg-4 col-md-12 col-xs-12">
+            <div class="panel" data-ng-repeat="message in messages | orderBy:'-id'">
                 <div class="panel panel-heading text-center">{{message.time | date:'MM/dd/yyyy @ h:mma'}}</div>
                 <div class="panel-body">
                     <p>Temperature: {{message.temp}}°C</p>
                     <p>Lightning: {{message.lum}}%</p>
-                    <p>Ground moisture: {{message.hum}}</p>
+                    <p>Ground moisture: {{message.hum}}%</p>
                     <p>id: {{message.id}}</p>
                 </div>
             </div>

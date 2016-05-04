@@ -36,7 +36,7 @@ function HttpService($http) {
         var url = baseURL + 'messages',
 
             onError = onError || function () {
-                    console.log('Failure loading devices');
+                    console.log('Failure loading messages');
                 };
 
         $http
