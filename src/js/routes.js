@@ -7,13 +7,13 @@ angular.module('SgfProjects').config(['$stateProvider', '$urlRouterProvider',
     function($stateProvider, $urlRouterProvider) {
 
         // For unmatched routes
-        $urlRouterProvider.otherwise('/');
+        $urlRouterProvider.otherwise('/devices');
 
         // Application routes
         $stateProvider
             .state('index', {
                 url: '/',
-                templateUrl: 'templates/dashboard.html'
+                templateUrl: 'templates/devices.html'
             })
             .state('tables', {
                 url: '/tables',
