@@ -12,6 +12,7 @@ function DevicesCtrl($scope, HttpService) {
     $scope.messages = [];
     $scope.showMessage = false;
     $scope.showGraph = false;
+    $scope.showMore = "Show more";
 
     $scope.getAllDevices = function () {
         HttpService.getDevices(onReady);
@@ -24,13 +25,24 @@ function DevicesCtrl($scope, HttpService) {
 
     $scope.getAllDevices();
 
-    $scope.getAllMessages = function () {
-        HttpService.getMessages(onReady);
+    $scope.getInfo = function () {
+        if($scope.showMessage==false){
+            $scope.getMessagesFromSpecificDay(1);
+        }else{
+            $scope.showMessage = false;
+            $scope.showMore = "Show more";
+        }
+
+    }
+    
+    $scope.getMessagesFromSpecificDay = function(day){
+        HttpService.getMessagesFromSpecificDay(day, onReady);
 
         function onReady(items) {
             //console.log(items)
             $scope.messages = items;
             $scope.showMessage = true;
+            $scope.showMore = "Show less";
             buildGraph();
         }
     }

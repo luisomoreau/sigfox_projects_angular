@@ -1,47 +1,64 @@
 <div class="row" data-ng-controller="DevicesCtrl">
 
+    <!--Start devices panels-->
     <div class="row">
         <div class="col-lg-4 col-md-12 col-xs-12">
-            <div class="panel" data-ng-repeat="device in devices" ng-click="getAllMessages()">
+            <div class="panel" data-ng-repeat="device in devices">
                 <div class="panel panel-heading text-center">{{device.name}}</div>
                 <div class="panel-body">
                     <div class="col-lg-6 col-md-6 col-xs-6">
                         <img class="img-responsive" src="img/C558D.jpg">
                     </div>
                     <div class="col-lg-6 col-md-6 col-xs-6 text-center ali">
-                    <p>{{device.id}}</p>
-                    <p>{{device.category}}</p>
-                    <p>{{device.board}}</p>
+                        <p>{{device.id}}</p>
+                        <p>{{device.category}}</p>
+                        <p>{{device.board}}</p>
+                        <button class="btn btn-success" ng-click="getInfo()">{{showMore}}</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <!--End devices panels-->
 
     <div class="row" ng-show="showMessage">
-        <div class="col-lg-4 col-md-12 col-xs-12">
-            <div class="panel" data-ng-repeat="message in messages | orderBy:'-id'">
-                <div class="panel panel-heading text-center">{{message.time | date:'MM/dd/yyyy @ h:mma'}}</div>
-                <div class="panel-body">
-                    <p>Temperature: {{message.temp}}°C</p>
-                    <p>Lightening: {{message.lum}}%</p>
-                    <p>Ground moisture: {{message.hum}}%</p>
-                    <p>id: {{message.id}}</p>
-                </div>
-            </div>
-        </div>
 
-        <div class="col-lg-8 col-md-12 col-xs-12">
+
+        <!--Start graph panel-->
+        <div class="col-lg-12 col-md-12 col-xs-12">
+            <div class="btn-group">
+                <button class="btn btn-info" ng-click="getMessagesFromSpecificDay(1)">Last day</button>
+                <button class="btn btn-info" ng-click="getMessagesFromSpecificDay(2)">Last 48h</button>
+                <button class="btn btn-info" ng-click="getMessagesFromSpecificDay(7)">Last week</button>
+            </div>
+            <p></p>
             <div class="panel">
                 <div class="panel-body">
                     <canvas id="line" class="chart chart-line" chart-data="data"
                             chart-labels="labels" chart-legend="true" chart-series="series"
-                            chart-click="onClick" >
+                            chart-click="onClick">
                     </canvas>
                 </div>
             </div>
-
         </div>
+        <!--End graph panel-->
+
+        <!--Start messages panels-->
+        <div class="col-lg-12 col-md-12 col-xs-12">
+            <div class="panel" data-ng-repeat="message in messages | orderBy:'-id'">
+
+                <div class="panel-body">
+                    <h5>{{message.time | date:'dd/MM/yyyy @ h:mma'}}</h5>
+                    <p> Temperature: {{message.temp}}°C |
+                        Lightening: {{message.lum}}% |
+                        Ground moisture: {{message.hum}}% |
+                        id: {{message.id}}</p>
+                </div>
+            </div>
+        </div>
+        <!--End messages panel-->
+
+
     </div>
 
 </div>
