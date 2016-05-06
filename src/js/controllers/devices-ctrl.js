@@ -56,7 +56,7 @@ function DevicesCtrl($scope, HttpService) {
 
     //Build graph
     function buildGraph(){
-        $scope.series = ['Ground moisture (%)', 'Lightening (%)', 'temperature(°C)'];
+        $scope.series = ['Ground moisture (%)', 'Lightening (%)', 'temperature (°C)'];
         $scope.labels = [];
         var hum = [];
         var lum = [];
@@ -67,8 +67,9 @@ function DevicesCtrl($scope, HttpService) {
         for (i = 0; i < $scope.messages.length; i++) {
             //only get the messages where the time is set
             if ($scope.messages[i].time != null) {
+                var days = ["Sun","Mon","Tu","Wed","Thu","Fri","Sat"];
                 var date = new Date($scope.messages[i].time);
-                var dateLabel = date.toLocaleTimeString()
+                var dateLabel = days[date.getDay()] +" "+ date.toLocaleTimeString();
                 //console.log(dateLabel);
                 $scope.labels.push(dateLabel);
                 hum.push($scope.messages[i].hum);
@@ -80,6 +81,31 @@ function DevicesCtrl($scope, HttpService) {
         $scope.data.push(lum);
         $scope.data.push(temp);
         $scope.showGraph = true;
+    }
+
+    $scope.TestTwits = function(){
+        var statuses = [
+            {
+                "tag" : "hot",
+                "message":"Wow it's so hot in the office 28°C, can someone turn on the air conditioning system? https://t.co/qblek65GFk"
+            },
+            {
+                "tag" : "dry",
+                "message":"Can someone give me some water please? I just passed below 12% of humidity https://t.co/qblek65GFk"
+            }
+        ];
+
+        var length = statuses.length;
+
+        var random = getRandomTwit(length);
+
+        $scope.status = statuses[random].message;
+
+        $scope.nbChar = $scope.status.length;
+
+        function getRandomTwit(length){
+            return Math.floor((Math.random() * length));
+        }
     }
 
 

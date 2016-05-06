@@ -48,9 +48,10 @@ function HttpService($http) {
     }
 
     function getMessagesFromSpecificDay(day, onReady, onError){
-        var day = new Date(new Date().getTime() - (day * 24 * 60 * 60 * 1000));
+        var timezone = new Date().getTimezoneOffset();
+        var offset = new Date(new Date().getTime() - (day * 24 * 60 * 60 * 1000) + (timezone * 60 * 1000));
 
-        var url = baseURL + 'messages?filter[where][time][gt]='+day,
+        var url = baseURL + 'messages?filter[where][time][gt]='+offset,
 
             onError = onError || function () {
                     console.log('Failure loading messages');

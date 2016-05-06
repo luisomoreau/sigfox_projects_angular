@@ -23,6 +23,10 @@ angular.module('SgfProjects').config(['$stateProvider', '$urlRouterProvider',
                 url: '/devices',
                 templateUrl: 'templates/devices.html'
             })
+            .state('settings', {
+                url: '/settings',
+                templateUrl: 'templates/settings.html'
+            })
             .state('documentation', {
                 url: '/documentation',
                 templateUrl: 'templates/documentation.html'
