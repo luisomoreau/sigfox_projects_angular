@@ -1,5 +1,6 @@
 /**
  * Http Service
+ * This service let you connect to the REST API
  */
 
 angular

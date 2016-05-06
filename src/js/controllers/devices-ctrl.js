@@ -14,6 +14,7 @@ function DevicesCtrl($scope, HttpService) {
     $scope.showGraph = false;
     $scope.showMore = "Show more";
 
+    //Get all devices
     $scope.getAllDevices = function () {
         HttpService.getDevices(onReady);
 
@@ -23,10 +24,13 @@ function DevicesCtrl($scope, HttpService) {
         }
     };
 
+    //activate the function when the view is loaded
     $scope.getAllDevices();
 
+    //get device info
     $scope.getInfo = function () {
         if($scope.showMessage==false){
+            //We only get the last 24 hours at first to reduce loading time
             $scope.getMessagesFromSpecificDay(1);
         }else{
             $scope.showMessage = false;
@@ -34,7 +38,8 @@ function DevicesCtrl($scope, HttpService) {
         }
 
     }
-    
+
+    //Filter to get only messages from specific day
     $scope.getMessagesFromSpecificDay = function(day){
         HttpService.getMessagesFromSpecificDay(day, onReady);
 
@@ -56,9 +61,11 @@ function DevicesCtrl($scope, HttpService) {
         var hum = [];
         var lum = [];
         var temp = [];
+        //the data array contains three arrays : hum, lum and temp
         $scope.data = [];
+        //iteration to build the graph arrays
         for (i = 0; i < $scope.messages.length; i++) {
-            //console.log($scope.messages[i]);
+            //only get the messages where the time is set
             if ($scope.messages[i].time != null) {
                 var date = new Date($scope.messages[i].time);
                 var dateLabel = date.toLocaleTimeString()
@@ -72,15 +79,7 @@ function DevicesCtrl($scope, HttpService) {
         $scope.data.push(hum);
         $scope.data.push(lum);
         $scope.data.push(temp);
-        console.log($scope.data);
         $scope.showGraph = true;
-
-        //$scope.labels = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
-        // $scope.data = [
-        //     [65, 59, 80, 81, 56, 55, 40],
-        //     [28, 48, 40, 19, 86, 27, 90],
-        //     [58, 28, 30, 79, 82, 47, 80]
-        // ];
     }
 
 
