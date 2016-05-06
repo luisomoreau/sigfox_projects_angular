@@ -92,6 +92,10 @@ function DevicesCtrl($scope, HttpService) {
             {
                 "tag" : "dry",
                 "message":"Can someone give me some water please? I just passed below 12% of humidity https://t.co/qblek65GFk"
+            },
+            {
+                "tag" : "normal",
+                "message":"Everything's fine, the temperature is at 28°C, the lightening is at 80% and the ground moisture is at 30% https://t.co/qblek65GFk"
             }
         ];
 

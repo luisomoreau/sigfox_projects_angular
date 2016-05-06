@@ -24,4 +24,16 @@ function SettingsCtrl($scope, HttpService) {
         }
 
     }
+
+    $scope.insertHumidity = function(){
+        $scope.message = $scope.message + " {hum} ";
+    }
+
+    $scope.insertLightening = function(){
+        $scope.message = $scope.message + " {lum} ";
+    }
+
+    $scope.insertTemperature = function(){
+        $scope.message = $scope.message + " {temp} ";
+    }
 }

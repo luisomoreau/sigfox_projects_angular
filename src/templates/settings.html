@@ -17,24 +17,36 @@
                         </div>
                         <div class="form-group">
                             <label>Your message:</label>
-                            <textarea class="form-control" rows="5" ng-model="message" placeholder="Write your funny message... With respect ;)" ng-change="getRemainingCharacters()"></textarea>
+                            <p>Insert variable in message :</p>
+                            <div class="btn-group">
+                                <button class="btn btn-info" ng-click="insertHumidity()">Humidity</button>
+                                <button class="btn btn-warning" ng-click="insertLightening()">Lightening</button>
+                                <button class="btn btn-danger" ng-click="insertTemperature()">Temperature</button>
+                                <button class="btn btn-success" disabled>Battery</button>
+                            </div>
+                            <p></p>
+                            <textarea class="form-control" rows="5" ng-model="message" placeholder="Write your funny message... With respect ;) e.g. Please bring me water when you come back from lunch! or " ng-change="getRemainingCharacters()"></textarea>
                         </div>
+
                         <p>Remaining characters : {{remaining}}</p>
                         <div class="form-group">
                             <label>Tags (It will help to display the twit at the right time):</label>
+                            <div class="checkbox disabled">
+                                <label><input type="checkbox" value="">Normal: Good conditions</label>
+                            </div>
                             <div class="checkbox">
                                 <label><input type="checkbox" value="">Dry: humidity below 10%</label>
                             </div>
                             <div class="checkbox">
                                 <label><input type="checkbox" value="">Hot: temperature above 30°C</label>
                             </div>
-                            <div class="checkbox disabled">
+                            <div class="checkbox">
                                 <label><input type="checkbox" value="">Week end: from friday 9pm to monday 8am</label>
                             </div>
-                            <div class="checkbox disabled">
+                            <div class="checkbox">
                                 <label><input type="checkbox" value="">Lunch time: from 12am to 2pm working day</label>
                             </div>
-                            <div class="checkbox disabled">
+                            <div class="checkbox">
                                 <label><input type="checkbox" value="">Night: lightening below 5%</label>
                             </div>
                         </div>
