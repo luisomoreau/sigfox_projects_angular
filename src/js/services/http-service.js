@@ -15,6 +15,9 @@ function HttpService($http) {
     this.getMessages = getMessages;
     this.getMessagesFromSpecificDay = getMessagesFromSpecificDay;
 
+    this.setRandomTwit = setRandomTwit;
+    this.getRandomTwit = getRandomTwit;
+
     var baseURL = 'http://sigfox.louismoreau.eu:3001/api/';
 
     function getBaseURL() {
@@ -55,6 +58,32 @@ function HttpService($http) {
 
             onError = onError || function () {
                     console.log('Failure loading messages');
+                };
+
+        $http
+            .get(url)
+            .success(onReady)
+            .error(onError);
+    }
+
+    function setRandomTwit(data, onReady, onError){
+        var url = baseURL + 'randomTwits',
+
+            onError = onError || function () {
+                    console.log('Failure setting random Twit');
+                };
+
+        $http
+            .post(url, data)
+            .success(onReady)
+            .error(onError);
+    }
+
+    function getRandomTwit(onReady, onError){
+        var url = baseURL + 'randomTwits',
+
+            onError = onError || function () {
+                    console.log('Failure getting random Twit');
                 };
 
         $http

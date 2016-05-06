@@ -32,33 +32,45 @@
                         <div class="form-group">
                             <label>Tags (It will help to display the twit at the right time):</label>
                             <div class="checkbox disabled">
-                                <label><input type="checkbox" value="">Normal: Good conditions</label>
+                                <label><input type="checkbox" ng-model="tags.normal">Normal: Good conditions</label>
                             </div>
                             <div class="checkbox">
-                                <label><input type="checkbox" value="">Dry: humidity below 10%</label>
+                                <label><input type="checkbox" ng-model="tags.dry">Dry: humidity below 10%</label>
                             </div>
                             <div class="checkbox">
-                                <label><input type="checkbox" value="">Hot: temperature above 30°C</label>
+                                <label><input type="checkbox" ng-model="tags.hot">Hot: temperature above 30°C</label>
                             </div>
                             <div class="checkbox">
-                                <label><input type="checkbox" value="">Cold: temperature below 15°C</label>
+                                <label><input type="checkbox" ng-model="tags.cold">Cold: temperature below 15°C</label>
                             </div>
                             <div class="checkbox">
-                                <label><input type="checkbox" value="">Week end: from friday 9pm to monday 8am</label>
+                                <label><input type="checkbox" ng-model="tags.weekend">Week end: from friday 9pm to
+                                    monday 8am</label>
                             </div>
                             <div class="checkbox">
-                                <label><input type="checkbox" value="">Lunch time: from 12am to 2pm working day</label>
+                                <label><input type="checkbox" ng-model="tags.lunchtime">Lunch time: from 12am to 2pm
+                                    working day</label>
                             </div>
                             <div class="checkbox">
-                                <label><input type="checkbox" value="">Night: lightening below 5%</label>
+                                <label><input type="checkbox" ng-model="tags.dark">Dark: lightening below 5%</label>
                             </div>
                         </div>
                     </form>
                     <button class="btn btn-success" ng-click="" ng-show="disableButton" disabled="disabled">Send</button>
-                    <button class="btn btn-success" ng-click="" ng-hide="disableButton">Send</button>
+                    <button class="btn btn-success" ng-click="setRandomTwit()" ng-hide="disableButton">Send</button>
                 </div>
             </div>
         </div>
+
+        <div class="col-lg-6 col-md-12 col-xs-12">
+            <div class="panel">
+                <div class="panel panel-heading text-center">Last random messages</div>
+                <div class="panel-body" data-ng-repeat="twit in twits">
+                    <p>@{{twit.username}}</p>
+                    <p>{{twit.message}}</p>
+                </div>
+            </div>
+        </div>
+        <!--End devices panels-->
     </div>
-    <!--End devices panels-->
 </div>
