@@ -40,7 +40,7 @@ function SettingsCtrl($scope, HttpService) {
         $scope.getRemainingCharacters()
     }
 
-    $scope.insertLightening = function(){
+    $scope.insertBrightness = function(){
         $scope.message = $scope.message + " {lum} % ";
         $scope.getRemainingCharacters()
     }

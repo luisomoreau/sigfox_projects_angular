@@ -56,7 +56,7 @@ function DevicesCtrl($scope, HttpService) {
 
     //Build graph
     function buildGraph(){
-        $scope.series = ['Ground moisture (%)', 'Lightening (%)', 'temperature (°C)'];
+        $scope.series = ['Ground moisture (%)', 'Brightness (%)', 'temperature (°C)'];
         $scope.labels = [];
         var hum = [];
         var lum = [];
