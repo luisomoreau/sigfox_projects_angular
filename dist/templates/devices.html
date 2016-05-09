@@ -2,8 +2,8 @@
 
     <!--Start devices panels-->
     <div class="row">
-        <div class="col-lg-4 col-md-12 col-xs-12">
-            <div class="panel" data-ng-repeat="device in devices">
+        <div class="col-lg-4 col-md-12 col-xs-12" data-ng-repeat="device in devices">
+            <div class="panel">
                 <div class="panel panel-heading text-center">{{device.name}}</div>
                 <div class="panel-body">
                     <div class="col-lg-6 col-md-6 col-xs-6">
@@ -13,7 +13,7 @@
                         <p>{{device.id}}</p>
                         <p>{{device.category}}</p>
                         <p>{{device.board}}</p>
-                        <button class="btn btn-success" ng-click="getInfo()">{{showMore}}</button>
+                        <button class="btn btn-success" ng-click="getInfo(device.id)">{{showMore}}</button>
                     </div>
                 </div>
             </div>
@@ -27,9 +27,9 @@
         <!--Start graph panel-->
         <div class="col-lg-12 col-md-12 col-xs-12">
             <div class="btn-group">
-                <button class="btn btn-info" ng-click="getMessagesFromSpecificDay(1)">Last 24h</button>
-                <button class="btn btn-info" ng-click="getMessagesFromSpecificDay(2)">Last 48h</button>
-                <button class="btn btn-info" ng-click="getMessagesFromSpecificDay(7)">Last week</button>
+                <button class="btn btn-info" ng-click="getMessagesFromSpecificDay(1, id)">Last 24h</button>
+                <button class="btn btn-info" ng-click="getMessagesFromSpecificDay(2, id)">Last 48h</button>
+                <button class="btn btn-info" ng-click="getMessagesFromSpecificDay(7, id)">Last week</button>
             </div>
             <p></p>
             <div class="panel">

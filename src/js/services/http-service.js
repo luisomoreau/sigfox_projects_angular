@@ -50,11 +50,12 @@ function HttpService($http) {
             .error(onError);
     }
 
-    function getMessagesFromSpecificDay(day, onReady, onError){
+    function getMessagesFromSpecificDay(day, id, onReady, onError){
         var timezone = new Date().getTimezoneOffset();
         var offset = new Date(new Date().getTime() - (day * 24 * 60 * 60 * 1000) + (timezone * 60 * 1000));
 
-        var url = baseURL + 'messages?filter[where][time][gt]='+offset,
+        var url = baseURL + 'messages?filter[where][device]='+id+'&filter[where][time][gt]='+offset,
+
 
             onError = onError || function () {
                     console.log('Failure loading messages');

@@ -13,6 +13,7 @@ function DevicesCtrl($scope, HttpService) {
     $scope.showMessage = false;
     $scope.showGraph = false;
     $scope.showMore = "Show more";
+    $scope.id = "";
 
     //Get all devices
     $scope.getAllDevices = function () {
@@ -28,26 +29,20 @@ function DevicesCtrl($scope, HttpService) {
     $scope.getAllDevices();
 
     //get device info
-    $scope.getInfo = function () {
-        if($scope.showMessage==false){
-            //We only get the last 24 hours at first to reduce loading time
-            $scope.getMessagesFromSpecificDay(1);
-        }else{
-            $scope.showMessage = false;
-            $scope.showMore = "Show more";
-        }
+    $scope.getInfo = function (id) {
+        $scope.id=id;
+        $scope.getMessagesFromSpecificDay(1, id);
 
     }
 
     //Filter to get only messages from specific day
-    $scope.getMessagesFromSpecificDay = function(day){
-        HttpService.getMessagesFromSpecificDay(day, onReady);
+    $scope.getMessagesFromSpecificDay = function(day, id){
+        HttpService.getMessagesFromSpecificDay(day, id, onReady);
 
         function onReady(items) {
             //console.log(items)
             $scope.messages = items;
             $scope.showMessage = true;
-            $scope.showMore = "Show less";
             buildGraph();
         }
     }
