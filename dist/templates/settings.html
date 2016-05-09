@@ -20,7 +20,7 @@
                             <p>Insert variable in message:</p>
                             <div class="btn-group">
                                 <button class="btn btn-info" ng-click="insertHumidity()">Humidity</button>
-                                <button class="btn btn-warning" ng-click="insertLightening()">Lightening</button>
+                                <button class="btn btn-warning" ng-click="insertBrightness()">Brightness</button>
                                 <button class="btn btn-danger" ng-click="insertTemperature()">Temperature</button>
                                 <button class="btn btn-success" disabled="disabled">Battery</button>
                             </div>
@@ -55,7 +55,7 @@
                                     working day</label>
                             </div>
                             <div class="checkbox">
-                                <label><input type="checkbox" ng-model="tags.dark">Dark: lightening below 5%</label>
+                                <label><input type="checkbox" ng-model="tags.dark">Dark: brightness below 5%</label>
                             </div>
                         </div>
                     </form>
