@@ -36,17 +36,17 @@ function SettingsCtrl($scope, HttpService) {
     }
 
     $scope.insertHumidity = function(){
-        $scope.message = $scope.message + " {hum} ";
+        $scope.message = $scope.message + " {hum} % ";
         $scope.getRemainingCharacters()
     }
 
     $scope.insertLightening = function(){
-        $scope.message = $scope.message + " {lum} ";
+        $scope.message = $scope.message + " {lum} % ";
         $scope.getRemainingCharacters()
     }
 
     $scope.insertTemperature = function(){
-        $scope.message = $scope.message + " {temp} ";
+        $scope.message = $scope.message + " {temp} °C";
         $scope.getRemainingCharacters()
     }
 
@@ -63,6 +63,9 @@ function SettingsCtrl($scope, HttpService) {
         }
         if($scope.tags.dry){
             data.tags.push("dry")
+        }
+        if($scope.tags.hydrated){
+            data.tags.push("hydrated")
         }
         if($scope.tags.hot){
             data.tags.push("hot")
@@ -86,6 +89,7 @@ function SettingsCtrl($scope, HttpService) {
 
         function onReady(response){
             console.log(response);
+            $scope.getRandomTwit();
         }
     }
 

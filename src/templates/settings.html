@@ -6,7 +6,7 @@
             <div class="panel">
                 <div class="panel panel-heading text-center">Help Sigfox Talking Plants to interact with humans</div>
                 <div class="panel-body">
-                    <p class="alert-danger">Not currently working... Available soon !!!</p>
+                    <p class="alert-danger">Not currently working... Available soon !!! You still can post suggestions they will be taken into account.</p>
                     <form>
                         <div class="form-group">
                             <label>Your Twitter username:</label>
@@ -40,6 +40,9 @@
                                 <label><input type="checkbox" ng-model="tags.dry">Dry: humidity below 10%</label>
                             </div>
                             <div class="checkbox">
+                                <label><input type="checkbox" ng-model="tags.hydrated">Hydrated: humidity above 50°%</label>
+                            </div>
+                            <div class="checkbox">
                                 <label><input type="checkbox" ng-model="tags.hot">Hot: temperature above 30°C</label>
                             </div>
                             <div class="checkbox">
@@ -66,10 +69,13 @@
 
         <div class="col-lg-6 col-md-12 col-xs-12">
             <div class="panel">
-                <div class="panel panel-heading text-center">Last random messages</div>
+                <div class="panel panel-heading text-center">Last suggestions</div>
                 <div class="panel-body" data-ng-repeat="twit in twits">
-                    <p>@{{twit.username}}</p>
-                    <p>{{twit.message}}</p>
+                    <p><label>Posted by:</label>
+                    @{{twit.username}}</p>
+                    <p><label>Message:</label>
+                    {{twit.message}}</p>
+                    <hr>
                 </div>
             </div>
         </div>
